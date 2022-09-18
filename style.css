@@ -1,0 +1,24 @@
+/* general settings*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.grid-container {
+    width: 500px;
+    height: 600px;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+.column {
+    flex: 1 1 0;
+}
+
+.row {
+    flex: 1;
+    display: flex;
+    background: gold;
+}
