@@ -3,6 +3,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 .grid-container {
@@ -15,10 +16,14 @@
 
 .column {
     flex: 1 1 0;
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .row {
     flex: 1;
     display: flex;
-    background: gold;
+    background: grey;
+    border: 1px solid rgb(255, 255, 255, 0.3);
+    border-bottom-width: 0;
+    
 }
