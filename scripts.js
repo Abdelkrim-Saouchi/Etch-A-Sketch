@@ -1,3 +1,4 @@
+// build grid
 const container = document.querySelector(".grid-container");
 
 for (let i = 0; i < 16; i++) {
@@ -11,22 +12,14 @@ for (let i = 0; i < 16; i++) {
     container.appendChild(row);
 }
 
-let divs = document.querySelectorAll(".column");
+// code for Etch with color red
+container.addEventListener("mousedown", (e) => {
+    if (e.buttons == 1) {
+        container.addEventListener("mouseover", (event) => {
+            if (event.buttons == 1 && event.target.className === "column") {
+                event.target.style.backgroundColor = "red";
+            }
+        });
+    }
+});
 
-
-// divs.forEach(div => {
-//     var mouseState = false;
-//     function mouseDown(e) {
-//         mouseState = true;
-//     }
-//     function mouseMove(e) {
-//         if (!mouseState) return;
-//         div.style.backgroundColor = "red";
-//     }
-//     function mouseUp(e) {
-//         mouseState = false;
-//     }
-//     div.addEventListener("mousedown", mouseDown);
-//     div.addEventListener("mouseover", mouseMove);
-//     div.addEventListener("mouseup", mouseUp);
-// });
