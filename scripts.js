@@ -2,13 +2,12 @@
 const body = document.querySelector("body");
 const container = document.querySelector(".grid-container");
 const GridSizeBtn = document.querySelector("#size-control");
-
 var grid = getGridBuilt(16,16); //build grid by default parameters 16x16
 
 // change grid sizes from user
 GridSizeBtn.addEventListener("click", () => {
     let gridSizes = getGridSizes();
-    grid = getGridBuilt(gridSizes[0] = 16, gridSizes[1] = 16);
+    grid = getGridBuilt(gridSizes[0], gridSizes[1]);
 });
 
 // code for Etch with color red
@@ -16,7 +15,12 @@ grid.addEventListener("mousedown", gridDraw);
 
 // function to build grid
 function getGridBuilt(rowNumber, columnNumber) {
+    // remove the existing grid to prevent add new sizes to previous sizes
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
     
+    // built grid with new sizes
     for (let i = 0; i < rowNumber; i++) {
         var row = document.createElement("div");
         row.className = "row";
