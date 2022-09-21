@@ -1,17 +1,47 @@
 // build grid
-const body = document.querySelector("body");
+//**remove body selector no need for it now
 const container = document.querySelector(".grid-container");
 const GridSizeBtn = document.querySelector("#size-control");
 var grid = getGridBuilt(16,16); //build grid by default parameters 16x16
 
 // change grid sizes from user
+
 GridSizeBtn.addEventListener("click", () => {
     let gridSizes = getGridSizes();
     grid = getGridBuilt(gridSizes[0], gridSizes[1]);
 });
 
-// code for Etch with color red
-grid.addEventListener("mousedown", gridDraw);
+
+//
+//choose black or white color
+var chosenColor;
+const buttons = document.querySelectorAll(".colors-control > button");
+const buttonsArray = Array.from(buttons);
+buttonsArray.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+        chosenColor = e.target.textContent;
+    });
+});
+
+
+// code for Etch with chosen color
+grid.addEventListener("mousedown", (e) => {
+    if (e.buttons == 1) {
+        gridDraw(chosenColor);
+    }
+});
+
+// erase button
+// const eraseBtn = document.querySelector(".erase");
+// eraseBtn.addEventListener("click", (e) => {
+//     const childs = grid.children;
+//     console.log(childs);
+//     childsArray = Array.from(childs);
+//     childsArray.forEach(child => {
+//         child.classlist.toggle("row-colored");
+//     })
+    
+// });
 
 // function to build grid
 function getGridBuilt(rowNumber, columnNumber) {
@@ -36,14 +66,13 @@ function getGridBuilt(rowNumber, columnNumber) {
 
 
 // function to draw inside grid
-function gridDraw(e) {
-    if (e.buttons == 1) {
+function gridDraw(color = "black") {
+    
         container.addEventListener("mouseover", (event) => {
             if (event.buttons == 1 && event.target.className === "column") {
-                event.target.style.backgroundColor = "red";
+                event.target.style.backgroundColor = `${color}`;
             }
         });
-    }
 }
 
 function getGridSizes() {
@@ -64,4 +93,9 @@ function getGridSizes() {
    
 }
 
-
+// Choose color
+// function getChosenColor(color) {
+//     let chosenColors = color;
+    
+//     return chosenColors;
+// }
