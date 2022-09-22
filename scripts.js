@@ -2,17 +2,20 @@
 //**remove body selector no need for it now
 const container = document.querySelector(".grid-container");
 const GridSizeBtn = document.querySelector("#size-control");
-var grid = getGridBuilt(16,16); //build grid by default parameters 16x16
+// to keep track the current size of grid
+let currentRows = 16; 
+let currentColumns = 16;
+let grid = getGridBuilt(currentRows,currentColumns); //build grid by default parameters 16x16
 
 // change grid sizes from user
-
 GridSizeBtn.addEventListener("click", () => {
     let gridSizes = getGridSizes();
-    grid = getGridBuilt(gridSizes[0], gridSizes[1]);
+    currentRows = gridSizes[0];
+    currentColumns = gridSizes[1]
+    grid = getGridBuilt(currentRows, currentColumns);
 });
 
 
-//
 //choose black or white color
 var chosenColor;
 const buttons = document.querySelectorAll(".colors-control > button");
@@ -32,16 +35,10 @@ grid.addEventListener("mousedown", (e) => {
 });
 
 // erase button
-// const eraseBtn = document.querySelector(".erase");
-// eraseBtn.addEventListener("click", (e) => {
-//     const childs = grid.children;
-//     console.log(childs);
-//     childsArray = Array.from(childs);
-//     childsArray.forEach(child => {
-//         child.classlist.toggle("row-colored");
-//     })
-    
-// });
+const eraseBtn = document.querySelector(".erase");
+eraseBtn.addEventListener("click", (e) => {
+        grid = getGridBuilt(currentRows, currentColumns);
+    });
 
 // function to build grid
 function getGridBuilt(rowNumber, columnNumber) {
@@ -92,10 +89,3 @@ function getGridSizes() {
     return [rowSize, columnSize];
    
 }
-
-// Choose color
-// function getChosenColor(color) {
-//     let chosenColors = color;
-    
-//     return chosenColors;
-// }
