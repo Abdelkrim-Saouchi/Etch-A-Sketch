@@ -41,6 +41,42 @@ eraseBtn.addEventListener("click", (e) => {
     });
 
 // random color button
+const randBtn = document.querySelector(".random-color");
+randBtn.addEventListener("click", () => {
+    grid.addEventListener("mousemove", () =>{
+        let red = Math.floor(Math.random() *256);
+        let green = Math.floor(Math.random() *256);
+        let blue = Math.floor(Math.random() *256);
+        chosenColor = "rgb("+red+", "+green+", "+blue+")";
+        gridDraw(chosenColor);
+    });
+});
+
+//Grey scale button
+// const GreyScaleBtn = document.querySelector(".grey-scale");
+// GreyScaleBtn.addEventListener("click", () => {
+    
+//     grid.addEventListener("mousemove", (e) => {
+//         if (e.buttons == 1) {
+//             e.target.addEventListener("mouseenter", (event) => {
+            
+//                     console.log(event.target);
+//                     let scale = 0.1;
+//                     let counter = 0;
+//                     // console.log(`before ${e.target.style.backgroundColor}`);
+//                     // if (e.currentTarget === e.target) {
+//                     //     counter += 1;
+//                     // }
+//                     counter++;
+//                     chosenColor = "rgb(255, 255, 255, "+scale+")";
+//                     gridDraw(chosenColor);
+//                     console.log(counter);
+//         });  
+            
+//         }
+//     });
+// });
+
 
 // function to build grid
 function getGridBuilt(rowNumber, columnNumber) {
