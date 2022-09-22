@@ -40,6 +40,8 @@ eraseBtn.addEventListener("click", (e) => {
         grid = getGridBuilt(currentRows, currentColumns);
     });
 
+// random color button
+
 // function to build grid
 function getGridBuilt(rowNumber, columnNumber) {
     // remove the existing grid to prevent add new sizes to previous sizes
