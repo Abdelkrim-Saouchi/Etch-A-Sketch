@@ -13,27 +13,33 @@ body {
     justify-content: center;
     align-items: center;
     gap: 2rem;
+    background-color: black;
+    color: white;
+    margin-top: 16px;
+    margin-bottom: 32px;
 }
 
 .grid-container {
     width: 500px;
     height: 600px;
-    border: 2px solid black;
+    border: 10px solid rgb(85, 24, 24);
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
 }
 
 .column {
     flex: 1 1 0;
-    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .row {
     flex: 1;
     display: flex;
     background-color: grey;
-    border: 1px solid rgb(255, 255, 255, 0.3);
-    border-bottom-width: 0;
+    /* border: 1px solid rgb(0, 0, 0, 0.1); */
+    /* border-bottom-width: 0; */
     
 }
 
@@ -61,5 +67,11 @@ button {
 
 button:hover {
     background-color: rgb(9, 9, 141);
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
